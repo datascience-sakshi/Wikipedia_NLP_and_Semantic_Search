@@ -1,3 +1,4 @@
+import pandas as pd
 import psycopg2 as pg2
 from psycopg2.extras import RealDictCursor
 
@@ -18,6 +19,5 @@ def query_to_dictionary(query, fetch_res=True):
 
 def query_to_dataframe(query):
 	return pd.DataFrame(query_to_dictionary(query))
-
 
 

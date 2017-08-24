@@ -3,9 +3,9 @@
   "hostname": "localhost",
   "notebook_dir": "/home/jovyan",
   "password": false,
-  "pid": 7,
+  "pid": 8,
   "port": 8888,
   "secure": false,
-  "token": "3cbfb225ba9a932240238977be46efe7b234eb96e19f7f9d",
+  "token": "66150db146adc13bfaf61cee1475a9ae67a9b7b0bcba5ae4",
   "url": "http://localhost:8888/"
 }

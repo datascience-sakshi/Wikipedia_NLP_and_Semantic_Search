@@ -1,22 +1,16 @@
 CREATE TABLE category (
-	id INTEGER,
+	cid INTEGER,
 	name TEXT,
-	PRIMARY KEY (id));
+	PRIMARY KEY (cid));
 
 CREATE TABLE page (
-	id INTEGER,
+	pid INTEGER,
 	title TEXT,
 	text TEXT);
 
 CREATE TABLE category_page(
-	page_id INTEGER,
-	category_id INTEGER,	
+	page_pid INTEGER,
+	category_cid INTEGER);	
 
-	CONSTRAINT fk_category_id
-	FOREIGN KEY (category_id)
-	REFERENCES category(id),
 
-	CONSTRAINT fk_page_id
-	FOREIGN KEY (page_id)
-	REFERENCES page(id));
 
