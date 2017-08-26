@@ -1,3 +1,5 @@
+import re
+
 def jsonify_wiki_category (category_name): 
     '''
     Insert category name as a string, note that this is case sensitive
@@ -112,4 +114,57 @@ def text_cleaner(text):
 
 
 
+def tokenize (text):
+    clean_text = text_cleaner(text)
+    return clean_text.lower().split() 
 
+
+
+def insert_category (id_no, name):
+    '''
+    grab category names and ids and push into the postsql db
+    '''
+    connect_to_db()
+    con, cur = connect_to_db()
+    
+    query = '''
+            BEGIN;
+            INSERT INTO category VALUES ({}, '{}');
+            COMMIT;
+            '''.format(id_no, name)
+    
+    cur.execute(query) 
+
+
+
+def insert_page (id_no, title, text):
+    '''
+    grab page ids, titles, and text, and then push into the postsql db
+    '''
+    connect_to_db()
+    con, cur = connect_to_db()
+    
+    query = '''
+            BEGIN;
+            INSERT INTO page VALUES ({}, '{}', '{}');
+            COMMIT;
+            '''.format(id_no, title, text)
+    
+    cur.execute(query)
+
+
+
+def insert_category_page (page_id, category_id):
+    con, cur = connect_to_db()
+    
+    query = '''
+    BEGIN;
+    INSERT INTO category_page VALUES ('{}', '{}');
+    COMMIT;
+    '''.format(page_id, category_id)
+    
+    cur.execute(query) 
+
+
+
+ 
