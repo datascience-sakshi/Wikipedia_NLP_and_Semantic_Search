@@ -96,7 +96,6 @@ def htmlify_wiki_article (article_name):
     return article_name_html
 
 
-
 def beautify_html_article (article_name):
     article_name_html = htmlify_wiki_article(article_name)
     soup = BeautifulSoup(article_name_html, 'html.parser')
@@ -110,6 +109,7 @@ def text_cleaner(text):
     text = re.sub('([^A-Za-z0-9_])\W+',' ', text)
     text = re.sub('\W',' ',text.lower())
     text = re.sub('\d','', text)
+    text = re.sub('[\_]', ' ', text)
     return text
 
 
