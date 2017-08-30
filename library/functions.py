@@ -1,4 +1,11 @@
 import re
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+import numpy as np
+import re
+import string
+import pickle
 
 def jsonify_wiki_category (category_name): 
     '''
