@@ -6,7 +6,8 @@ CREATE TABLE category (
 CREATE TABLE page (
 	pid INTEGER,
 	title TEXT,
-	text TEXT);
+	text TEXT,
+	PRIMARY KEY(pid));
 
 CREATE TABLE category_page(
 	page_pid INTEGER,

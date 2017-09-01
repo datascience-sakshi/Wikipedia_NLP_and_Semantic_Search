@@ -49,14 +49,14 @@ def insert_page (id_no, title, text):
     cur.execute(query)
 
 
-def insert_category_page (page_id, category_id):
+def insert_category_page (page_id, category_cid):
     connect_to_db()
     con, cur = connect_to_db()
     query = '''
-    BEGIN;
-    INSERT INTO category_page VALUES ({}, {});
-    COMMIT;
-    '''.format(page_id, category_id)
+	    BEGIN;
+	    INSERT INTO category_page VALUES ({}, {});
+	    COMMIT;
+	    '''.format(page_id, category_cid)
     cur.execute(query)
 
 
