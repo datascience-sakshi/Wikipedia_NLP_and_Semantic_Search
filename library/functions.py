@@ -126,20 +126,3 @@ def tokenize (text):
     return clean_text.lower().split() 
 
 
-def tfidf_vectorizer (search_query, min_df=1, ngram_range=(1,1)):
-    tfidf_vec = TfidfVectorizer(ngram_range =ngram_range, stop_words = 'english', min_df=min_df)
-    doc_term_matrix = tfidf_vec.fit_transform(X['text'])
-    search_query_vec = tfidf_vec.transform([search_query])
-    return doc_term_matrix, search_query_vec
-
-
-def SVD_lsa (search_query, n_components=300, ngram_range=(1,1), min_df=1):
-    SVD = TruncatedSVD(n_components=n_components)
-    doc_term_matrix, search_query_vec = tfidf_vectorizer (search_query, ngram_range = ngram_range, min_df = min_df)
-    
-    lsa_doc_term = SVD.fit_transform(doc_term_matrix)
-    search_query_lsa = SVD.transform(search_query_vec)
-    
-    return lsa_doc_term, search_query_lsa
-
- 
